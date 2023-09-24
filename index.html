@@ -4,30 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TA and Grader Assignment System</title>
+    <title>TA and Grader Assignment System - Project Tracker</title>
     <!-- Add any additional meta tags, stylesheets, or scripts here -->
+    <style>
+        /* Add your CSS styles here for formatting */
+        /* Example styles for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .entry {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Your page content goes here -->
     <header>
-        <h1>Welcome to the TA and Grader Assignment System</h1>
+        <h1>Welcome to the TA and Grader Assignment System - Project Tracker</h1>
     </header>
-
-    <nav>
-        <!-- Add navigation links here, e.g., navigation menu or buttons -->
-    </nav>
 
     <main>
         <!-- Add the main content of your page here -->
-        <p>This is the main content area where you can display information about the TA and Grader Assignment System.</p>
+
+        <!-- Meeting Entry Form -->
+        <form id="meeting-form">
+            <h2>Meeting Entry</h2>
+            <label for="meeting-date">Date:</label>
+            <input type="date" id="meeting-date" required><br>
+
+            <label for="meeting-time">Time:</label>
+            <input type="time" id="meeting-time" required><br>
+
+            <label for="meeting-details">Meeting Details:</label>
+            <textarea id="meeting-details" rows="4" cols="50" required></textarea><br>
+
+            <label for="meeting-comments">Comments:</label>
+            <textarea id="meeting-comments" rows="4" cols="50"></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Display Logged Entries -->
+        <div id="log-entries">
+            <h2>Meeting Log</h2>
+            <!-- Meeting entries will be displayed here dynamically -->
+        </div>
     </main>
 
-    <footer>
-        <!-- Add footer content here, e.g., copyright information or contact details -->
-    </footer>
-
     <!-- Add any additional scripts or JavaScript files here, if needed -->
+    <script>
+        // JavaScript code for handling form submission and displaying entries
+        document.addEventListener("DOMContentLoaded", function () {
+            const meetingForm = document.getElementById("meeting-form");
+            const logEntries = document.getElementById("log-entries");
+
+            meetingForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                // Get input values
+                const date = document.getElementById("meeting-date").value;
+                const time = document.getElementById("meeting-time").value;
+                const details = document.getElementById("meeting-details").value;
+                const comments = document.getElementById("meeting-comments").value;
+
+                // Create a new entry element
+                const entry = document.createElement("div");
+                entry.classList.add("entry");
+                entry.innerHTML = `
+                    <p><strong>Date:</strong> ${date}</p>
+                    <p><strong>Time:</strong> ${time}</p>
+                    <p><strong>Meeting Details:</strong> ${details}</p>
+                    <p><strong>Comments:</strong> ${comments}</p>
+                `;
+
+                // Append the new entry to the log
+                logEntries.appendChild(entry);
+
+                // Clear form fields
+                meetingForm.reset();
+            });
+        });
+    </script>
 </body>
 
 </html>
