@@ -1,2 +1,2 @@
-# TestTrack
+# Capstone Project
 Senior Capstone project
