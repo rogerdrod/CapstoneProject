@@ -1,94 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
+<!--https://www.youtube.com/watch?v=-2LtZRi6Q0s-->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TA and Grader Assignment System - Project Tracker</title>
-    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+    <title>Academic Aide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+
     <style>
-        /* Add your CSS styles here for formatting */
-        /* Example styles for demonstration purposes */
         body {
-            font-family: Arial, sans-serif;
+            background-color: #42455a;
+            color: #f9f9f9;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            min-height: 100vh;
+            
         }
 
-        .entry {
-            border: 1px solid #ccc;
-            padding: 10px;
+        .container {
+            width: 80%;
+            max-width: 800px; /* Adjust the maximum width as needed */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .menu ul {
+            display: flex;
+            margin: 10px 0;
+            padding: 0;
+            justify-content: center; /* Center the menu items horizontally */
+        }
+
+        .menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    color: #f9f9f9;
+    cursor: pointer;
+    transition: color 0.3s; /* Smooth color transition on hover */
+    text-decoration: none; /* Remove underline */
+}
+
+.menu ul li:hover {
+    color: red; /* Change color to red on hover */
+}
+
+/* Change cursor style on hover to indicate interactivity */
+.menu ul li:hover {
+    cursor: pointer;
+}
+
+        .logo img {
+            width: 40px;
+            margin-top: -7px;
+            margin-right: 8px;
+        }
+
+        .banner h1 {
+            font-size: 34px;
+        }
+
+        .banner h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .banner p {
+            font-size: 24px;
             margin-bottom: 20px;
+        }
+        .meeting-entry {
+            border: 1px solid #000; /* Black border with 1px width */
+            padding: 10px; /* Add padding to create space between content and border */
+        }
+        .about-us {
+            display: flex;
+            justify-content: center; /* Center the team horizontally */
+            align-items: center; /* Center the team vertically */
+            flex-wrap: wrap; /* Allow team members to wrap to the next line if needed */
+            gap: 20px; /* Add some space between team members */
+        }
+
+        .person-info {
+            flex: 1;
+            padding: 20px;
+            max-width: 250px; /* Adjust max-width as needed */
+            text-align: center; /* Center the text within each person's info box */
         }
     </style>
 </head>
 
 <body>
-    <!-- Your page content goes here -->
-    <header>
-        <h1>Welcome to the TA and Grader Assignment System - Project Tracker</h1>
-    </header>
-
-    <main>
-        <!-- Add the main content of your page here -->
-
-        <!-- Meeting Entry Form -->
-        <form id="meeting-form">
-            <h2>Meeting Entry</h2>
-            <label for="meeting-date">Date:</label>
-            <input type="date" id="meeting-date" required><br>
-
-            <label for="meeting-time">Time:</label>
-            <input type="time" id="meeting-time" required><br>
-
-            <label for="meeting-details">Meeting Details:</label>
-            <textarea id="meeting-details" rows="4" cols="50" required></textarea><br>
-
-            <label for="meeting-comments">Comments:</label>
-            <textarea id="meeting-comments" rows="4" cols="50"></textarea><br>
-
-            <button type="submit">Submit</button>
-        </form>
-
-        <!-- Display Logged Entries -->
-        <div id="log-entries">
-            <h2>Meeting Log</h2>
-            <!-- Meeting entries will be displayed here dynamically -->
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Texas_Tech_Athletics_logo.svg/800px-Texas_Tech_Athletics_logo.svg.png"></li>
+                <li><a href="#about">About Project</a></li>
+                <li><a href="#interviews">Interviews</a></li>
+                <li><a href="#meeting">Meeting Info</a></li>
+                <li><a href="#visuals">Visuals</a></li>
+                <li><a href="#team">About Us</a></li>
+            </ul>
         </div>
-    </main>
+            <div class="banner" id="about">
+                <h1>Academic Aide</h1>
+                    <h2>
+                        About Our Project
+                    </h2>
+                    <div class="about-text">
+                        <p>
+                            Academic Aide is a comprehensive software solution designed to streamline the
+                            TTU TA and grader assignment processes. It efficiently manages the assignment
+                            of teacher assistants (TAs) and graders, facilitates transparent communication
+                            among committee members responsible for TA and grader selection, offer students
+                            a user-friendly portal for submitting applications, and an appointment system for
+                            students and committee members to meet online or in person.
+                        </p>
+                    </div>
+            </div>
+            
+            <div class="banner" id="interviews">
+                <h2>
+                    Interviews
+                </h2>
+                <p>
+                    Dr chen, Dr lim, Dr Shen, Kelly Cooper
+                </p>
+            </div>
+            
+            <div class="banner" id="meeting">
+                <h2>
+                    Meeting Info
+                </h2>
+                <p class="meeting-entry">
+                    Date: 10/20/30<br>
+                    Location: Discord<br>
+                    What we did: We collaborated on deciding the functions our project would have<br>
+                </p>
+            </div>
 
-    <!-- Add any additional scripts or JavaScript files here, if needed -->
-    <script>
-        // JavaScript code for handling form submission and displaying entries
-        document.addEventListener("DOMContentLoaded", function () {
-            const meetingForm = document.getElementById("meeting-form");
-            const logEntries = document.getElementById("log-entries");
-
-            meetingForm.addEventListener("submit", function (event) {
-                event.preventDefault();
-
-                // Get input values
-                const date = document.getElementById("meeting-date").value;
-                const time = document.getElementById("meeting-time").value;
-                const details = document.getElementById("meeting-details").value;
-                const comments = document.getElementById("meeting-comments").value;
-
-                // Create a new entry element
-                const entry = document.createElement("div");
-                entry.classList.add("entry");
-                entry.innerHTML = `
-                    <p><strong>Date:</strong> ${date}</p>
-                    <p><strong>Time:</strong> ${time}</p>
-                    <p><strong>Meeting Details:</strong> ${details}</p>
-                    <p><strong>Comments:</strong> ${comments}</p>
-                `;
-
-                // Append the new entry to the log
-                logEntries.appendChild(entry);
-
-                // Clear form fields
-                meetingForm.reset();
-            });
-        });
-    </script>
+            <div class="banner" id="team">
+                <h2>Our Team</h2>
+                <div class="about-us">
+                    <div class="person-info">
+                        <p>
+                            <strong>Name:</strong> Roger Rodulfo<br>
+                            <strong>Email:</strong> rrodulfo@ttu.edu<br>
+                            <strong>Position:</strong> Full Stack Developer
+                        </p>
+                    </div>
+                    <div class="person-info">
+                        <p>
+                            <strong>Name:</strong> Daniel Diaz<br>
+                            <strong>Email:</strong> dia36200@ttu.edu<br>
+                            <strong>Position:</strong> Full Stack Developer
+                        </p>
+                    </div>
+                    <div class="person-info">
+                        <p>
+                            <strong>Name:</strong> Ed<br>
+                            <strong>Email:</strong> Ed@ttu.edu<br>
+                            <strong>Position:</strong> Full Stack Developer
+                        </p>
+                    </div>
+                    <div class="person-info">
+                        <p>
+                            <strong>Name:</strong> Jared<br>
+                            <strong>Email:</strong> Jared@ttu.edu<br>
+                            <strong>Position:</strong> Full Stack Developer
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+    </div>
 </body>
-
 </html>
