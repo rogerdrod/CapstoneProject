@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interviews</title>
+    <style>
+        .interviewee {
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+        }
+
+        .interviewee:hover {
+            color: rgb(0, 255, 85); /* Change the text color when hovering */
+        }
+
+        .interview-content {
+            display: none;
+        }
+
+        .interview-content.active {
+            display: block;
+        }
+    </style>
+    <script>
+        var currentInterviewee = null;
+
+        function toggleInterview(intervieweeId) {
+            var interviewContent = document.getElementById(intervieweeId);
+            if (intervieweeId === currentInterviewee) {
+                interviewContent.classList.remove('active');
+                currentInterviewee = null;
+            } else {
+                if (currentInterviewee) {
+                    var currentContent = document.getElementById(currentInterviewee);
+                    currentContent.classList.remove('active');
+                }
+                interviewContent.classList.add('active');
+                currentInterviewee = intervieweeId;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Interviews</h1>
+
+    <!-- Dropdown menu for Kelly Cooper -->
+    <div class="interviewee" onclick="toggleInterview('kelly-cooper-content')">Kelly Cooper</div>
+    <div id="kelly-cooper-content" class="interview-content">
+        <p><b>What is the process of selecting TA’s and graders?</b><br><br> Right now, they fill out a form for TAs, but it's a little different for each one...</p>
+    </div>
+
+    <!-- Dropdown menu for Dr. Chen -->
+    <div class="interviewee" onclick="toggleInterview('dr-chen-content')">Dr. Chen</div>
+    <div id="dr-chen-content" class="interview-content">
+        <p><b>What is the process of selecting TA’s and graders?</b><br><br> There are actually many factors to consider for TAs...</p>
+    </div>
+
+    <!-- Repeat the above structure for other interviewees -->
+
+</body>
+</html>

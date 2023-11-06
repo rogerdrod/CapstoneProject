@@ -6,7 +6,7 @@
 
     <style>
         body {
-            background-color: #42455a;
+            background-color: #6a041a;
             color: #f9f9f9;
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -89,7 +89,42 @@
             max-width: 250px; /* Adjust max-width as needed */
             text-align: center; /* Center the text within each person's info box */
         }
+        .interviewee {
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+        }
+
+        .interviewee:hover {
+            color: blue; /* Change the text color when hovering */
+        }
+
+        .interview-content {
+            display: none;
+        }
+
+        .interview-content.active {
+            display: block;
+        }
     </style>
+        <script>
+            var currentInterviewee = null;
+    
+            function toggleInterview(intervieweeId) {
+                var interviewContent = document.getElementById(intervieweeId);
+                if (intervieweeId === currentInterviewee) {
+                    interviewContent.classList.remove('active');
+                    currentInterviewee = null;
+                } else {
+                    if (currentInterviewee) {
+                        var currentContent = document.getElementById(currentInterviewee);
+                        currentContent.classList.remove('active');
+                    }
+                    interviewContent.classList.add('active');
+                    currentInterviewee = intervieweeId;
+                }
+            }
+        </script>
 </head>
 
 <body>
@@ -126,7 +161,8 @@
                     Interviews
                 </u></h2>
                 <p>
-<h3>Kelly Cooper</h3>
+<div class="interviewee" onclick="toggleInterview('kelly-cooper-content')">Kelly Cooper</div>
+<div id="kelly-cooper-content" class="interview-content">
 <b>What is the process of selecting TA’s and graders?</b><br><br> 
 Right now, they fill out a form for TAs, but it's a little different for each one. I mean, it doesn't really matter too much. This is how they choose who gets what position. So, there's a form that's turned in, like an application, to a committee. This committee goes through and then assigns the TAs, so they put it on a spreadsheet. They send me the spreadsheet, and then I have to start notifying each and every one of them. "Congratulations, you've been selected as a TA," and then they have to schedule. I set up different orientations, and it didn't used to be like that until this year. I changed it; I was like, "No, we're all coming at one time, not doing this one by one." Yeah, so now they come for orientation, I put them through an orientation, do paperwork, and then they're hired.
 <br><br><b>What are the constraints when selecting a TA and grader?</b><br><br> 
@@ -151,8 +187,10 @@ I really don't know; that's another Michael Shen question because he's the one w
 <br><br><b>How long does the process take currently?</b><br><br>
 
 They go through HR to get their approval. Then, my RA’s approvals will go through about nine levels of approval. It starts with me putting it in and submitting it. The chair approves it, the Dean's office has to approve it, research services have to approve it if they're paid on a grant, budgeting has to approve it, and if they're a grad student, the grad school has to approve it. Yeah, it goes through about nine levels of approval..
+</div>
 
-<h3>Dr. Chen</h3>
+<div class="interviewee" onclick="toggleInterview('dr-chen-content')">Dr. Chen</div>
+<div id="dr-chen-content" class="interview-content">
 <b>What is the process of selecting TA’s and graders?</b><br><br> 
 
 There are actually many factors to consider for TAs. Because we support them with a full assistantship, I'll try to explain it from both the financial and technical sides.
@@ -182,7 +220,10 @@ Ideally, we would prefer candidates who have previously taken our courses, as th
 <br><br><b>How long does the process take currently?</b><br><br>
 
 Regarding the timeline, the entire process typically spans one to two months. To provide you with a more specific schedule, the process begins about one month before the semester starts when we start collecting all the applications. Next, we need to assess the class sizes, which can be somewhat time-consuming due to their dynamic nature. Finally, we encounter the recurring issue of TAs or graders changing their commitments, which necessitates continuous monitoring and the search for suitable replacements.
-<h3>Dr. Shin</h3>
+</div>
+
+<div class="interviewee" onclick="toggleInterview('dr-shin-content')">Dr. Shin</div>
+<div id="dr-shin-content" class="interview-content">
 <b>Can I just get the process from your perspective of the hiring and selecting and managing of TAs and graders?</b><br><br> 
 
 that's the process of selecting TAs, RAs, and graders, correct? Yes, indeed. In the case of RAs, the faculty will make the selection, as it's their decision. Your system may not be involved in selecting RAs.
@@ -206,8 +247,10 @@ Currently, we don't have any dedicated software to support these processes. My w
 <br><br><b>How long in advance do you push for applicants?</b><br><br>
 
 We initiate this process roughly one month before the start of a new semester. About a month in advance, we announce the collection of applications for TAs and graders. Then, we begin the processing phase.
-<h3>Dr. Lim</h3>
+</div>
 
+<div class="interviewee" onclick="toggleInterview('dr-lim-content')">Dr. Lim</div>
+<div id="dr-lim-content" class="interview-content">
 <b>what is the process of selecting the TAs and graders</b><br><br>
 
 Before the semester begins, typically two to four weeks in advance (let's say at least four weeks), we have two categories to consider: TAs and graders. For TAs, their responsibilities are quite similar, but it's worth noting that TAs are exclusively PhD students. Master's students cannot serve as TAs at this time. So, for the TA role, it's primarily determined by the department, which means the number of TAs is initially fixed. However, it can be adjusted later based on student registration numbers. If a course has a large number of students, for example, sometimes up to 150, we may need more TA hours. Conversely, for smaller classes, we may assign fewer TAs or just one TA, depending on the size.
@@ -240,6 +283,7 @@ These adjustments are contingent on the actual number of registered students, wh
 In our department, we have a significant number of registered students, and the enrollment is quite high. As a result, the process of assigning TAs and graders becomes increasingly complex and requires ongoing updates.
                 </p>
             </div>
+        </div>
             
             <div class="banner" id="meeting">
                 <h2><u>
