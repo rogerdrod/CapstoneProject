@@ -1,2 +1,2 @@
 # Capstone Project
-Senior Capstone project
+Senior Capstone project site
